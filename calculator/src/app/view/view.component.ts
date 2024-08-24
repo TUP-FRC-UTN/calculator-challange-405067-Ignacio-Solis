@@ -13,15 +13,15 @@ export class ViewComponent {
   value2 : number = 0;
   result : number = 0;
   clear : boolean = false;
-  onTextChange(event : any){
-    
-    if (event.target.id == "input1") {
-      this.value1 = parseInt(event.data)
-    }
 
-    else {
-      this.value2 = parseInt(event.data)
+  onTextChange(event : any){
+    if (event.target.id === "input1") {
+      this.value1 = parseInt(event.target.value)
     }
+    else {
+      this.value2 = parseInt(event.target.value)
+    }
+    
   }
 
   onResult(result: number) {
@@ -29,14 +29,12 @@ export class ViewComponent {
     document.getElementById("result")?.setAttribute("value",String(result))
   }
   
-  shouldClear(shouldClear : any) {
-    
-    if (shouldClear) {
-      console.log("func called");
-    
-      document.getElementById("result")?.setAttribute("value","")
- 
-    }
+  shouldClear() {
+      document.getElementById("result")?.setAttribute("value","");
+      (<HTMLInputElement>document.getElementById("input1")).value = "0";
+      (<HTMLInputElement>document.getElementById("input2")).value = "0"
+      this.value1 = 0
+      this.value2 = 0
   }
   
 }

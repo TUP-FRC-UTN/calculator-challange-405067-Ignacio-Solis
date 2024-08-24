@@ -1,7 +1,8 @@
 <h3>Primer valor</h3>
-<input type="text" id="input1" (input)="onTextChange($event)">
+<input type="number" id="input1" (input)="onTextChange($event)">
 <h3>Segundo valor</h3>
-<input type="text" id="input2" (input)="onTextChange($event)">
+<input type="number" id="input2" (input)="onTextChange($event)">
 <h3>Resultado</h3>
 <input disabled  id="result">
-<app-logic (result)="onResult($event)" [value1]="value1" [value2]="value2" (shouldClear)="shouldClear($event)"></app-logic>
+
+<app-logic (result)="onResult($event)" [value1]="value1" [value2]="value2" (shouldClear)="shouldClear()"></app-logic>

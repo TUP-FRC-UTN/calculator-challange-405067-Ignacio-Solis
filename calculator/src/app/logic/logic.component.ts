@@ -12,12 +12,8 @@ export class LogicComponent {
   @Input() value2 = 0
   @Output() result = new EventEmitter<number>();
   @Output() shouldClear = new EventEmitter<boolean>();
-  showBtn(e : any) {
-    console.log(e);
-  }
   calculateSum() {
-    const sum : number = this.value1+this.value2;
-    this.result.emit(sum);
+    this.result.emit(this.value1+this.value2);
   }
   calculateDifference() {
     this.result.emit(this.value1-this.value2)
@@ -33,6 +29,6 @@ export class LogicComponent {
   }
 
   clear() {
-    this.shouldClear.emit(true);
+    this.shouldClear.emit();
   }
 }
